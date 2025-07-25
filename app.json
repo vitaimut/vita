@@ -1,0 +1,58 @@
+{
+  "name": "𝗠𝘂𝘁𝘆𝗮-𝗨𝘀𝗲𝗿𝗯𝗼𝘁",
+  "description": "𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𝗕𝘆 @Muutya",
+  "logo": "https://telegra.ph/file/7881245cdf92e3b0c0d33-8e3772b60440d5e997.jpg",
+  "keywords": ["telegram", "userbot", "Mutya-Userbot", "modular", "python"],
+  "repository": "https://github.com/mutyya/Mutya-Userbot",
+  "stack": "container",
+  "env": {
+    "API_KEY": {
+      "description": "Dapatkan API KEY di my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Dapatkan API Hash di my.telegram.org",
+      "required": true
+    },
+     "STRING_SESSION": {
+      "description": "Dapatkan String Session di @strgen_bot",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Ambil Heroku API KEY mu di https://dashboard.heroku.com/account",
+      "required": true
+    },
+    "PM_AUTO_BAN": {
+      "description": "PM Auto-Ban adalah module untuk bot welcome otomatis ketika ada orang ngePC kamu, jika Mau di matikan ubah ke False",
+      "value": "True",
+      "required": false
+    }
+  },
+"addons": [
+    {
+    "plan": "heroku-postgresql",
+      "options": {
+        "version": "15"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
